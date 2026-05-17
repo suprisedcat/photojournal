@@ -41,7 +41,7 @@ export default function App() {
         imageUrl: 'https://picsum.photos/200',
         date: new Date().toLocaleDateString(),
       };
-      
+
       setEntries([...entries, newEntry]);
       setNewTitle('');
       setNewCaption('');
@@ -93,11 +93,26 @@ export default function App() {
 
         <View style={styles.formContainer}>
           {/* TODO: Add a TextInput for the entry title bound to newTitle/setNewTitle.
-              Verify: typing in the title field updates the state visibly above (or in the saved entry). */}
+              Verify: typing in the title field updates the state visibly above (or in the saved entry). ye*/}
 
           {/* TODO: Add a TextInput for the caption bound to newCaption/setNewCaption.
               Make it multi-line so longer thoughts read nicely.
               Verify: pressing Enter inside the caption goes to a new line, not submitting the form. */}
+
+          <TextInput
+            style={styles.input}
+            placeholder="Title"
+            value={newTitle}
+            onChangeText={setNewTitle}
+          />
+          <TextInput
+            style={[styles.input, styles.multilineInput]}
+            placeholder="Caption"
+            value={newCaption}
+            onChangeText={setNewCaption}
+            multiline
+          />
+
 
           <View style={styles.formButtons}>
             <ActionButton
